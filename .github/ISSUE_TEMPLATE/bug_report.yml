@@ -1,0 +1,47 @@
+name: Bug report
+description: Report reproducible broken behavior.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include API keys, secrets, private exports, or sensitive personal data.
+  - type: input
+    id: project
+    attributes:
+      label: Project
+      description: Repository or app name.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the broken behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the smallest reliable reproduction.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, device, local or live demo.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshots, logs, or short recordings if useful. Redact sensitive data.
+    validations:
+      required: false

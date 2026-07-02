@@ -1,0 +1,33 @@
+name: Feature request
+description: Suggest a focused improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Project
+      description: Repository or app name.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the smallest useful version.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Maintenance tradeoff
+      description: Why is this worth adding long-term?
+    validations:
+      required: true

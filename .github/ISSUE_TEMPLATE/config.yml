@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Sponsor these projects
+    url: https://github.com/sponsors/shfqrkhn?o=esb
+    about: Fund continued development and maintenance.
+  - name: Project portfolio
+    url: https://shfqrkhn.github.io/
+    about: Browse active apps and maintained projects.
