@@ -15,6 +15,7 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 - Avoid repo-specific requirements that belong in individual repos.
 - Retired/deleted repositories are out of normal support; route reports to the current active repo or portfolio.
 - Keep Sponsor link visible where appropriate.
+- Do not leak private planning drafts, offline handoffs, or unpublished project names into default public issue/security guidance.
 
 ## Key Files
 
@@ -30,4 +31,3 @@ git diff --check
 ```
 
 Also verify there are no secrets and no stale deleted-repo URLs before pushing.
-
