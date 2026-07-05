@@ -40,7 +40,7 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 | --- | --- | --- | --- |
 | Generic public community files | `PASS_WITH_LIMITATIONS` | issue templates, PR template, maintainer handoff, default community scope evidence | Do not add repo-specific product requirements here. |
 | Secret/private-data warnings | `PASS_WITH_LIMITATIONS` | issue and PR templates | Templates reduce risk but cannot prevent user-submitted secrets by themselves. |
-| Private planning exclusion | `PASS_WITH_LIMITATIONS` | maintainer handoff | Recheck no private docs, future-project names, PII, keys, exports, or backups are added. |
+| Private planning exclusion | `PASS_WITH_LIMITATIONS` | maintainer handoff, `git archive` | Recheck no private docs, future-project names, PII, keys, exports, or backups are added. |
 
 ## Required Before Public-Facing Change
 
@@ -49,5 +49,6 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 - `gh release list --limit 5` returns no releases
 - `npm run qa`
 - `git diff --check`
+- `git archive --format=tar HEAD`
 - protected-path scan
 - template review for generic, public-safe wording
