@@ -79,6 +79,7 @@ assert(text['SECURITY.md'].includes('private vulnerability reporting'), 'Securit
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Claim Firewall Invariant'), 'Evidence receipt must keep the claim firewall.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Safe-To-Publish Receipt'), 'Evidence receipt must keep safe-to-publish evidence.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('no GitHub Releases'), 'Evidence receipt must preserve no-Releases policy.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('gh release list --limit 5'), 'Evidence receipt must require a GitHub Releases absence check.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('no open secret/dependabot/code-scanning alerts'), 'Evidence receipt must preserve alert evidence boundaries.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('code-scanning not-applicable/no-analysis state'), 'Evidence receipt must preserve code-scanning no-analysis handling.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes("git rev-list --left-right --count 'HEAD...@{u}'"), 'Evidence receipt must preserve the PowerShell-safe upstream delta command.');
