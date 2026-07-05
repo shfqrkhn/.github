@@ -79,6 +79,8 @@ assert(text['SECURITY.md'].includes('private vulnerability reporting'), 'Securit
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Claim Firewall Invariant'), 'Evidence receipt must keep the claim firewall.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Safe-To-Publish Receipt'), 'Evidence receipt must keep safe-to-publish evidence.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('no GitHub Releases'), 'Evidence receipt must preserve no-Releases policy.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('no open secret/dependabot/code-scanning alerts'), 'Evidence receipt must preserve alert evidence boundaries.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('code-scanning not-applicable/no-analysis state'), 'Evidence receipt must preserve code-scanning no-analysis handling.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('OmniOS Transfer Contract'), 'Handoff must keep OmniOS transfer terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('source-backed, reusable, non-secret'), 'Handoff must keep doctrine promotion boundaries.');
 
