@@ -28,11 +28,17 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 - If any proof is missing, stale, or contradicted by GitHub/repo state, record the repo as `PASS_WITH_LIMITATIONS`, `NOT_RUN`, `BLOCKED`, or `NO_GO` instead of safe.
 - The final status table must name remaining risks rather than implying safety from silence.
 
+## Default Community Scope Evidence
+
+- Default issue, PR, support, security, and profile files must stay generic; repo-specific product contracts belong in each app repo.
+- Templates may warn users not to submit secrets, private data, or unsupported retired-app reports, but they must not request credentials, private exports, local backups, or sensitive personal data.
+- Retired, absorbed, deleted, or private projects should be routed to current public repos or the portfolio only when current repo state proves that public surface exists.
+
 ## Claim Boundaries
 
 | Area | Class | Evidence | Limit |
 | --- | --- | --- | --- |
-| Generic public community files | `PASS_WITH_LIMITATIONS` | issue templates, PR template, maintainer handoff | Do not add repo-specific product requirements here. |
+| Generic public community files | `PASS_WITH_LIMITATIONS` | issue templates, PR template, maintainer handoff, default community scope evidence | Do not add repo-specific product requirements here. |
 | Secret/private-data warnings | `PASS_WITH_LIMITATIONS` | issue and PR templates | Templates reduce risk but cannot prevent user-submitted secrets by themselves. |
 | Private planning exclusion | `PASS_WITH_LIMITATIONS` | maintainer handoff | Recheck no private docs, future-project names, PII, keys, exports, or backups are added. |
 
