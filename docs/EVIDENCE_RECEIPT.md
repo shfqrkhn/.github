@@ -45,7 +45,7 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 ## Required Before Public-Facing Change
 
 - `git status --short --ignored`
-- `git rev-list --left-right --count HEAD..."@{u}"`
+- `git rev-list --left-right --count 'HEAD...@{u}'`
 - `npm run qa`
 - `git diff --check`
 - protected-path scan
