@@ -1,0 +1,9 @@
+{
+  "name": "shfqrkhn-default-community",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/default-community-static-regression.mjs"
+  }
+}
