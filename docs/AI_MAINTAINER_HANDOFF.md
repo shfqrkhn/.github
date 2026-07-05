@@ -25,6 +25,12 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 - Operations truth: default files apply across public repos; GitHub Releases stay absent.
 - Transfer truth: update this handoff and the evidence receipt when shared governance wording, privacy warnings, or public-surface guarantees change.
 
+## Doctrine Delta Decision
+
+- After incidents, rescue runs, maturity passes, or repeated failures, classify reusable lessons as `promote`, `reject`, `quarantine`, or `keep_local`.
+- Promote only source-backed, reusable, non-secret lessons that strengthen a gate, checklist, source rule, or failure guard without weakening public-surface safety.
+- Keep private, project-specific, speculative, or unverified lessons out of public repos unless the user explicitly approves publication.
+
 ## Key Files
 
 - `README.md`: public explanation of shared defaults.
