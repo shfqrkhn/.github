@@ -54,6 +54,7 @@ for (const file of files) {
 const packageJson = JSON.parse(read('package.json'));
 assert(packageJson.private === true, 'package.json must stay private.');
 assert(packageJson.scripts?.test === 'node tests/default-community-static-regression.mjs', 'npm test must run the static regression check.');
+assert(packageJson.scripts?.qa === 'npm test', 'npm run qa must run the full default-community gate.');
 
 assert(text['README.md'].includes('Default community health files'), 'README must describe default community health files.');
 assert(text['README.md'].includes('Sponsor these projects'), 'README must keep the sponsor entry visible.');

@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/default-community-static-regression.mjs"
+    "test": "node tests/default-community-static-regression.mjs",
+    "qa": "npm test"
   }
 }

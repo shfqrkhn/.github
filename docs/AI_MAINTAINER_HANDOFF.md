@@ -41,7 +41,7 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 ## Required Checks
 
 ```bash
-npm test
+npm run qa
 git diff --check
 ```
 

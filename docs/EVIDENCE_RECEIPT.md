@@ -46,7 +46,7 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 
 - `git status --short --ignored`
 - `git rev-list --left-right --count HEAD..."@{u}"`
-- `npm test`
+- `npm run qa`
 - `git diff --check`
 - protected-path scan
 - template review for generic, public-safe wording
