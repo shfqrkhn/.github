@@ -17,6 +17,14 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 - Keep Sponsor link visible where appropriate.
 - Do not leak private planning drafts, offline handoffs, or unpublished project names into default public issue/security guidance.
 
+## OmniOS Transfer Contract
+
+- Product truth: generic public community/security defaults, not repo-specific product policy.
+- Execution truth: preserve issue-template, PR-template, funding, and public-safe wording checks before publishing.
+- Evidence truth: use `docs/EVIDENCE_RECEIPT.md`, template review, protected-path scans, and GitHub alert checks; public claims must stay within `PASS` or `PASS_WITH_LIMITATIONS`.
+- Operations truth: default files apply across public repos; GitHub Releases stay absent.
+- Transfer truth: update this handoff and the evidence receipt when shared governance wording, privacy warnings, or public-surface guarantees change.
+
 ## Key Files
 
 - `README.md`: public explanation of shared defaults.
