@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -44,6 +45,12 @@ const assert = (condition, message) => {
 };
 
 const read = (file) => readFileSync(join(root, file), 'utf8');
+const forbiddenTrackedPathPattern = /(^|\/)(node_modules|offline|linkedin-post-package|test-results|playwright-report|\.codex-remote-attachments)(\/|$)|^data\/(manual-overrides\.json|latest-simulation\.json|scoreboards)(\/|$)|(^|\/).*\.((env)|(pem)|(key)|(p12)|(pfx))$|(^|\/)(exports?|backups?|logs?|scratch)(\/|$)/i;
+const trackedFiles = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' })
+  .split(/\r?\n/)
+  .filter(Boolean)
+  .map((file) => file.replace(/\\/g, '/'));
+const forbiddenTrackedFiles = trackedFiles.filter((file) => forbiddenTrackedPathPattern.test(file));
 const text = Object.fromEntries(files.map((file) => [file, read(file)]));
 const allText = Object.values(text).join('\n');
 
@@ -55,6 +62,7 @@ const packageJson = JSON.parse(read('package.json'));
 assert(packageJson.private === true, 'package.json must stay private.');
 assert(packageJson.scripts?.test === 'node tests/default-community-static-regression.mjs', 'npm test must run the static regression check.');
 assert(packageJson.scripts?.qa === 'npm test', 'npm run qa must run the full default-community gate.');
+assert(forbiddenTrackedFiles.length === 0, `Forbidden tracked paths: ${forbiddenTrackedFiles.join(', ')}`);
 
 assert(text['README.md'].includes('Default community health files'), 'README must describe default community health files.');
 assert(text['README.md'].includes('Sponsor these projects'), 'README must keep the sponsor entry visible.');
