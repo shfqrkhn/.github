@@ -16,6 +16,12 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 - Public claims may not exceed `PASS` or `PASS_WITH_LIMITATIONS`; `NOT_RUN`, `BLOCKED`, and `NO_GO` items must stay unpublished or be labeled as unavailable.
 - Volatile GitHub settings, alerts, workflows, and policy claims must be rechecked from current repo state before reliance.
 
+## Currentness Watchdog
+
+- Recheck claim evidence before public-facing changes, not on a fixed calendar.
+- If current evidence is stale, missing, inaccessible, or contradicted by repo/GitHub state, downgrade the affected claim to `NOT_RUN`, `BLOCKED`, or `NO_GO`.
+- Do not preserve old status snapshots as proof after templates, workflows, alerts, branch protection, or public governance wording changes.
+
 ## Claim Boundaries
 
 | Area | Class | Evidence | Limit |
