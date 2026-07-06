@@ -114,6 +114,17 @@ for (const file of ['SECURITY.md', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md']) {
 assert(text['SECURITY.md'].includes('private vulnerability reporting'), 'Security guidance must prefer private vulnerability reporting.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Claim Firewall Invariant'), 'Evidence receipt must keep the claim firewall.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Safe-To-Publish Receipt'), 'Evidence receipt must keep safe-to-publish evidence.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Mission-Critical Reliability Evidence'), 'Evidence receipt must keep mission-critical reliability evidence.');
+for (const phrase of ['self-checking', 'crash recovery', 'clear state handling', 'autonomous AI-assisted development', 'TDD/SDD', 'Remove or reject']) {
+  assert(text['docs/EVIDENCE_RECEIPT.md'].includes(phrase), `Evidence receipt missing mission-critical reliability term: ${phrase}`);
+}
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Design Language Evidence'), 'Evidence receipt must keep design language evidence.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Single Input Directive Evidence'), 'Evidence receipt must keep single input evidence.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('platform-limited input only'), 'Evidence receipt must keep platform-limited input evidence.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('No public surface may require'), 'Evidence receipt must block dual-input public surfaces.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Single input operation'), 'Evidence receipt must keep single input claim boundaries.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Design language/UI safety'), 'Evidence receipt must keep design language claim boundaries.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('modern minimalist'), 'Evidence receipt must keep the shared design language.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('no GitHub Releases'), 'Evidence receipt must preserve no-Releases policy.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('gh release list --limit 5'), 'Evidence receipt must require a GitHub Releases absence check.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('git archive'), 'Evidence receipt must tie default-community archive safety to generated archive evidence.');
@@ -121,6 +132,11 @@ assert(text['docs/EVIDENCE_RECEIPT.md'].includes('no open secret/dependabot/code
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('code-scanning not-applicable/no-analysis state'), 'Evidence receipt must preserve code-scanning no-analysis handling.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes("git rev-list --left-right --count 'HEAD...@{u}'"), 'Evidence receipt must preserve the PowerShell-safe upstream delta command.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('OmniOS Transfer Contract'), 'Handoff must keep OmniOS transfer terms.');
+assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Reliability truth'), 'Handoff must keep reliability truth terms.');
+assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Design truth'), 'Handoff must keep design truth terms.');
+assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Single input truth'), 'Handoff must keep single input truth terms.');
+assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('combined input-mode path'), 'Handoff must block combined input-mode dependencies.');
+assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('modern minimalist'), 'Handoff must keep shared design language terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('source-backed, reusable, non-secret'), 'Handoff must keep doctrine promotion boundaries.');
 
 assert(!/\/releases\/latest/i.test(allText), 'Default community files must not point users to GitHub Releases.');

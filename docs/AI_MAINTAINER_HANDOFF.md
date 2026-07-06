@@ -23,6 +23,9 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 - Execution truth: preserve issue-template, PR-template, funding, and public-safe wording checks before publishing.
 - Evidence truth: use `docs/EVIDENCE_RECEIPT.md`, template review, protected-path scans, and GitHub alert checks; public claims must stay within `PASS` or `PASS_WITH_LIMITATIONS`.
 - Operations truth: default files apply across public repos; GitHub Releases stay absent.
+- Reliability truth: keep shared governance self-checking, recovery-oriented, state-explicit, maintainable, simple, one-input accessible, and TDD/SDD friendly without adding app-specific complexity.
+- Design truth: keep shared public guidance modern minimalist, utilitarian, professional, joyful, responsive, and concise; treat MIT UI/design resources as inspiration only for app repos, and reject browser JS popups, blocking surfaces, inaccessible links, noisy decoration, or arbitrary component copy-paste.
+- Single input truth: public links, templates, forms, and future interactive shared guidance must remain fully operable by keyboard only, mouse/pointer only, touch only, or platform-limited input only; never require a combined input-mode path.
 - Transfer truth: update this handoff and the evidence receipt when shared governance wording, privacy warnings, or public-surface guarantees change.
 
 ## Doctrine Delta Decision
