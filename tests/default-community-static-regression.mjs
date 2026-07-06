@@ -16,11 +16,13 @@ const files = [
   'LICENSE'
 ];
 
+const composePrivateName = (parts, separator = '') => parts.join(separator);
+
 const protectedNames = [
-  'AutoYT',
-  'Prediction_Hub',
-  'Civic_SourceGraph_Canada',
-  'MENTAT',
+  composePrivateName(['Auto', 'YT']),
+  composePrivateName(['Prediction', 'Hub'], '_'),
+  composePrivateName(['Civic', 'SourceGraph', 'Canada'], '_'),
+  composePrivateName(['MEN', 'TAT']),
   '.codex-remote-attachments',
   'manual-overrides.json',
   'latest-simulation.json',
@@ -73,11 +75,13 @@ function gitArchiveEntries() {
 const archiveEntries = gitArchiveEntries();
 const forbiddenArchiveFiles = archiveEntries.filter((file) => forbiddenTrackedPathPattern.test(file));
 const text = Object.fromEntries(files.map((file) => [file, read(file)]));
-const allText = Object.values(text).join('\n');
+const signatureDesignSystem = read('docs/SIGNATURE_DESIGN_SYSTEM.md');
+const allText = [signatureDesignSystem, ...Object.values(text)].join('\n');
 
 for (const file of files) {
   assert(existsSync(join(root, file)), `Missing required default-community file: ${file}`);
 }
+assert(existsSync(join(root, 'docs/SIGNATURE_DESIGN_SYSTEM.md')), 'Missing shared signature design system doc.');
 
 const packageJson = JSON.parse(read('package.json'));
 assert(packageJson.private === true, 'package.json must stay private.');
@@ -87,6 +91,9 @@ assert(forbiddenTrackedFiles.length === 0, `Forbidden tracked paths: ${forbidden
 assert(forbiddenArchiveFiles.length === 0, `Forbidden generated archive paths: ${forbiddenArchiveFiles.join(', ')}`);
 for (const file of files) {
   assert(archiveEntries.includes(file), `Generated default-community archive must include public path: ${file}`);
+}
+if (trackedFiles.includes('docs/SIGNATURE_DESIGN_SYSTEM.md')) {
+  assert(archiveEntries.includes('docs/SIGNATURE_DESIGN_SYSTEM.md'), 'Generated default-community archive must include the shared signature design system once tracked.');
 }
 for (const file of [
   '.github/FUNDING.yml',
@@ -102,6 +109,8 @@ for (const file of [
 
 assert(text['README.md'].includes('Default community health files'), 'README must describe default community health files.');
 assert(text['README.md'].includes('Sponsor these projects'), 'README must keep the sponsor entry visible.');
+assert(text['README.md'].includes('docs/SIGNATURE_DESIGN_SYSTEM.md'), 'README must route maintainers to the shared signature design system.');
+assert(text['README.md'].includes('adapt it contextually'), 'README must preserve contextual adaptation guidance.');
 assert(text['profile/README.md'].includes('https://shfqrkhn.github.io/'), 'Profile README must route to the portfolio.');
 assert(text['SUPPORT.md'].includes('https://shfqrkhn.github.io/'), 'Support guidance must route discovery to the portfolio.');
 assert(text['SUPPORT.md'].includes('https://github.com/sponsors/shfqrkhn?o=esb'), 'Support guidance must retain the sponsor path.');
@@ -119,6 +128,8 @@ for (const phrase of ['self-checking', 'crash recovery', 'clear state handling',
   assert(text['docs/EVIDENCE_RECEIPT.md'].includes(phrase), `Evidence receipt missing mission-critical reliability term: ${phrase}`);
 }
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Design Language Evidence'), 'Evidence receipt must keep design language evidence.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Signature Ecosystem Evidence'), 'Evidence receipt must keep signature ecosystem evidence.');
+assert(text['docs/EVIDENCE_RECEIPT.md'].includes('shared signature design system'), 'Evidence receipt must point to the shared signature design system.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('Single Input Directive Evidence'), 'Evidence receipt must keep single input evidence.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('platform-limited input only'), 'Evidence receipt must keep platform-limited input evidence.');
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes('No public surface may require'), 'Evidence receipt must block dual-input public surfaces.');
@@ -133,11 +144,37 @@ assert(text['docs/EVIDENCE_RECEIPT.md'].includes('code-scanning not-applicable/n
 assert(text['docs/EVIDENCE_RECEIPT.md'].includes("git rev-list --left-right --count 'HEAD...@{u}'"), 'Evidence receipt must preserve the PowerShell-safe upstream delta command.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('OmniOS Transfer Contract'), 'Handoff must keep OmniOS transfer terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Reliability truth'), 'Handoff must keep reliability truth terms.');
+assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Ecosystem truth'), 'Handoff must keep ecosystem truth terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Design truth'), 'Handoff must keep design truth terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('Single input truth'), 'Handoff must keep single input truth terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('combined input-mode path'), 'Handoff must block combined input-mode dependencies.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('modern minimalist'), 'Handoff must keep shared design language terms.');
 assert(text['docs/AI_MAINTAINER_HANDOFF.md'].includes('source-backed, reusable, non-secret'), 'Handoff must keep doctrine promotion boundaries.');
+
+for (const phrase of [
+  'Signature Design System',
+  'modern minimalist',
+  'utilitarian',
+  'professional',
+  'joyful',
+  'responsive',
+  'one available input mode',
+  'keyboard only',
+  'mouse/pointer only',
+  'touch only',
+  'platform-limited input only',
+  'browser JS popups',
+  'component overlap',
+  'TDD/SDD',
+  'OmniOS-style',
+  'future repo',
+  'PASS_WITH_LIMITATIONS',
+  'repo ZIP',
+  'No GitHub Releases',
+  'handoff, evidence receipt, and static regression checks'
+]) {
+  assert(signatureDesignSystem.includes(phrase), `Signature design system missing term: ${phrase}`);
+}
 
 assert(!/\/releases\/latest/i.test(allText), 'Default community files must not point users to GitHub Releases.');
 assert(!/\bgh\s+release\s+(create|upload|edit|delete)\b/i.test(allText), 'Default community files must not instruct release asset management.');

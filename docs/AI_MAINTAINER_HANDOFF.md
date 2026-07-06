@@ -24,6 +24,7 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 - Evidence truth: use `docs/EVIDENCE_RECEIPT.md`, template review, protected-path scans, and GitHub alert checks; public claims must stay within `PASS` or `PASS_WITH_LIMITATIONS`.
 - Operations truth: default files apply across public repos; GitHub Releases stay absent.
 - Reliability truth: keep shared governance self-checking, recovery-oriented, state-explicit, maintainable, simple, one-input accessible, and TDD/SDD friendly without adding app-specific complexity.
+- Ecosystem truth: `docs/SIGNATURE_DESIGN_SYSTEM.md` is the canonical shared design system for current and future public repos; apply it contextually rather than forcing identical UI components.
 - Design truth: keep shared public guidance modern minimalist, utilitarian, professional, joyful, responsive, and concise; treat MIT UI/design resources as inspiration only for app repos, and reject browser JS popups, blocking surfaces, inaccessible links, noisy decoration, or arbitrary component copy-paste.
 - Single input truth: public links, templates, forms, and future interactive shared guidance must remain fully operable by keyboard only, mouse/pointer only, touch only, or platform-limited input only; never require a combined input-mode path.
 - Transfer truth: update this handoff and the evidence receipt when shared governance wording, privacy warnings, or public-surface guarantees change.
@@ -39,6 +40,7 @@ Maintain default community health files for the active `shfqrkhn` project portfo
 - `README.md`: public explanation of shared defaults.
 - `SECURITY.md`: default security reporting guidance.
 - `FUNDING.yml`: Sponsor metadata when present.
+- `docs/SIGNATURE_DESIGN_SYSTEM.md`: shared design, input, reliability, and future repo intake framework.
 - Issue/PR templates if present.
 
 ## Required Checks

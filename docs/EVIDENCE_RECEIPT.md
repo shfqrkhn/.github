@@ -50,6 +50,7 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 ## Design Language Evidence
 
 - Shared public guidance must stay modern minimalist, utilitarian, professional, joyful, responsive, and concise with clear links, accessible templates, no noisy decoration, and no component overlap.
+- Signature Ecosystem Evidence: `docs/SIGNATURE_DESIGN_SYSTEM.md` is the canonical shared signature design system for current and future public repos; app repos adapt it to their product contracts rather than copying components blindly.
 - MIT UI libraries/resources are inspiration sources for app or portfolio repos only unless a source-backed, license-checked, tested need justifies a dependency.
 - Reject browser JS popups, blocking surfaces, arbitrary component copy-paste, mixed visual systems, unbounded animation, external CDNs, or styling that makes shared guidance less scannable.
 
@@ -63,12 +64,14 @@ This public-safe receipt keeps shared community-file claims tied to evidence ins
 | Mission-critical reliability | `PASS_WITH_LIMITATIONS` | mission-critical reliability evidence, static tests, template review | This repo can enforce shared process guardrails only; app-specific runtime recovery belongs in app repos. |
 | Single input operation | `PASS_WITH_LIMITATIONS` | single input directive evidence, template review, no browser popup policy | Does not certify every GitHub rendering surface, OS assistive technology, or unusual HID/browser pairing. |
 | Design language/UI safety | `PASS_WITH_LIMITATIONS` | handoff/evidence docs, static tests, manual template review where run | Does not certify every GitHub rendering surface; shared guidance should stay concise rather than app-like. |
+| Signature ecosystem fit | `PASS_WITH_LIMITATIONS` | `docs/SIGNATURE_DESIGN_SYSTEM.md`, handoff/evidence docs, static tests | Does not require identical UI components; each repo must stay contextual to its product contract. |
 
 ## Required Before Public-Facing Change
 
 - `git status --short --ignored`
 - `git rev-list --left-right --count 'HEAD...@{u}'`
 - `gh release list --limit 5` returns no releases
+- review `docs/SIGNATURE_DESIGN_SYSTEM.md` for design, input, reliability, repo-ZIP, and public-surface fit
 - `npm run qa`
 - `git diff --check`
 - `git archive --format=tar HEAD`
